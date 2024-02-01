@@ -1,0 +1,13 @@
+{
+  "name": "frontend-helper-methods",
+  "version": "1.0.0",
+  "description": "Helper methods for your frontend application, you can use these methods in web, mobile",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["Helper Methods", "Utility Functions"],
+  "git repository": "https://github.com/kousiclattala/frontend-helper-methods.git",
+  "author": "Kousic Lattala",
+  "license": "ISC"
+}
