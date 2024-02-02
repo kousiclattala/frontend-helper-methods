@@ -1,13 +1,25 @@
 {
   "name": "frontend-helper-methods",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "type": "module",
   "description": "Helper methods for your frontend application, you can use these methods in web, mobile",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
-  "keywords": ["Helper Methods", "Utility Functions"],
+  "keywords": [
+    "Helper Methods",
+    "Utility Functions"
+  ],
   "git repository": "https://github.com/kousiclattala/frontend-helper-methods.git",
   "author": "Kousic Lattala",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "typescript": "^5.3.3"
+  }
 }
