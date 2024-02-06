@@ -20,7 +20,7 @@ It provides validation for the password whether it is valid or not.You have to p
 - Password must include atleast one `Number`.
 - Password must be of minimum length `by default minimum length is 8`
 
-## Usage
+### Usage
 
 ```javascript
 //Usage
@@ -28,4 +28,20 @@ It provides validation for the password whether it is valid or not.You have to p
 import { passwordValidator } from 'frontend-helper-methods
 
 console.log(passwordValidator("<Provide password you want to validate>"))
+```
+
+### emailValidator: (email: string) => boolean
+
+It validates the email and returns a boolean value, true means
+email is valid, false means email is invalid. It checks for
+'@' and '.' symbol in the email.
+
+### Usage
+
+```javascript
+//Usage
+
+import { emailValidator } from 'frontend-helper-methods
+
+console.log(emailValidator("<Provide email you want to validate>"))
 ```

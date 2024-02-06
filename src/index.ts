@@ -22,3 +22,19 @@ export const passwordValidator = (password: string, minimumLength?: number): boo
 
   return isValid;
 };
+
+/**
+ * It validates the email and returns a boolean value, true means
+ * email is valid, false means email is invalid. It checks for 
+ * '@' and '.' symbol in the email.
+ * @param {string} email email you want to validate. 
+ * @returns 
+ */
+
+export const emailValidator = (email: string): boolean => {
+  const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+  const isValid = regex.test(email);
+
+  return isValid;
+};
