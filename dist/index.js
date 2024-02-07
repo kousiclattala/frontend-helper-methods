@@ -21,10 +21,24 @@ export const passwordValidator = (password, minimumLength) => {
  * email is valid, false means email is invalid. It checks for
  * '@' and '.' symbol in the email.
  * @param {string} email email you want to validate.
- * @returns
+ * @returns {boolean} returns boolean value.
  */
 export const emailValidator = (email) => {
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const isValid = regex.test(email);
     return isValid;
+};
+/**
+ * It gives the difference between two dates
+ * @param {string | Date} startDate accepts a string or date, format should be in yyyy-mm-dd or yyyy/mm/dd or yyyy-mm-ddT00:00:00Z
+ * @param {string | Date} endDate accepts a string or date, format should be in yyyy-mm-dd or yyyy/mm/dd or yyyy-mm-ddT00:00:00Z
+ * @returns {number} returns difference between two days in numeric value
+ */
+export const getDifferenceInDays = (startDate, endDate) => {
+    const date2 = new Date(endDate);
+    const date1 = new Date(startDate);
+    const diffInTime = date2.getTime() - date1.getTime();
+    let days_difference = diffInTime / (1000 * 60 * 60 * 24);
+    let finalValue = Number(days_difference.toFixed(0));
+    return finalValue;
 };

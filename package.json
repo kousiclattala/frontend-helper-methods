@@ -1,6 +1,6 @@
 {
   "name": "frontend-helper-methods",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "Helper methods for your frontend application, you can use these methods in web, mobile",
   "main": "dist/index.js",
