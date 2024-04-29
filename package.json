@@ -14,8 +14,9 @@
     "Helper Methods",
     "Utility Functions"
   ],
+  "homepage": "https://github.com/kousiclattala/frontend-helper-methods#readme",
   "repository": "https://github.com/kousiclattala/frontend-helper-methods.git",
-  "author": "Kousic Lattala",
+  "author": "Kousic Lattala <kousiclattala112@gmail.com> (https://kousiclattala.netlify.app)",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.23.9",
