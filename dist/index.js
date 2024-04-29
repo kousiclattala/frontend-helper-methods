@@ -42,3 +42,23 @@ export const getDifferenceInDays = (startDate, endDate) => {
     let finalValue = Number(days_difference.toFixed(0));
     return finalValue;
 };
+/**
+ * @param {string | Date} selectedDate accepts Date in the form of string or Date and it should be in the format YYYY-MM-DD
+ * @returns returns date in milliseconds as startdate and enddate
+ * @example
+ * selectedDate: 2024-04-29 we are appending the time stamp to it as, startDate: "2024-04-29T00:01:01", endDate: "2024-04-29T23:59:59"
+ * and returns the value {start_date: number, end_date: number}
+ */
+export const getDateMilliseconds = (selectedDate) => {
+    if (selectedDate == "") {
+        throw Error("Please provide a non empty string");
+    }
+    let mon = new Date(selectedDate).getMonth() + 1;
+    const startDate = `${new Date(selectedDate).getFullYear()}-${mon > 10 ? "" : "0"}${mon}-${new Date(selectedDate).getDate()}T00:01:01`;
+    const endDate = `${new Date(selectedDate).getFullYear()}-${mon > 10 ? "" : "0"}${mon}-${new Date(selectedDate).getDate()}T23:59:59`;
+    const stDate = new Date(startDate);
+    const edDate = new Date(endDate);
+    const stMilli = stDate.getTime();
+    const edMilli = edDate.getTime();
+    return { start_date: stMilli, end_date: edMilli };
+};

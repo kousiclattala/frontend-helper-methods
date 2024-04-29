@@ -67,3 +67,22 @@ console.log(
   getDifferenceInDays("2024-02-07T00:00:00Z", "2024-02-09T00:00:00Z")
 ); // return value 2
 ```
+
+### getDateMilliseconds: (selectedDate: string | Date): { start_date: number; end_date: number } | Error
+
+It accepts Date in the form of string or Date and it should be in the format `yyyy-mm-dd` or `yyyy/mm/ddd` or `yyyy-mm-ddT00:00:00Z` and returns the updated date in milliseconds as {start_date: number, end_date: number}
+
+### Usage
+
+```javascript
+// Usage
+
+import { getDateMilliseconds } from "frontend-helper-methods";
+
+console.log(getDateMilliseconds("<Provide selected date>"));
+
+console.log(getDateMilliseconds("2024-04-29")); // returns { start_date: 1714329061000, end_date: 1714415399000 }
+
+// if you provide an empty string, method will throw an Error with string `Please provide a non empty string`
+console.log(getDateMilliseconds("")); // returns Error: Please provide a non empty string
+```
