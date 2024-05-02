@@ -86,3 +86,23 @@ console.log(getDateMilliseconds("2024-04-29")); // returns { start_date: 1714329
 // if you provide an empty string, method will throw an Error with string `Please provide a non empty string`
 console.log(getDateMilliseconds("")); // returns Error: Please provide a non empty string
 ```
+
+### getMonthDifference = ( start_date: Date, end_date: Date ): number | null
+
+This methods accepts two dates start_date, end_date and calculates the difference in months between the two dates ad returns the value. Please note that, lowest number date should be start_date and highest number date should be end_date, otherwise you will get the value in negatives. i.e start_date: "2024-04-29", end_date: "2024-05-29" it returns 1, if you give it in reverse order then you will get -1.
+
+### Usage
+
+```javascript
+// Usage
+
+import { getMonthDifference } from "frontend-helper-methods";
+
+console.log(getMonthDifference(new Date("2024-04-02"), new Date("2024-05-29"))); // returns 1
+
+console.log(getMonthDifference(new Date("2024-05-02"), new Date("2024-04-29"))); // returns -1
+
+console.log(getMonthDifference("", new Date("2024-04-29"))); // returns null
+
+console.log(getMonthDifference(new Date("2024-05-02"), "")); // returns null
+```

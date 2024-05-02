@@ -1,3 +1,5 @@
+import { isDate } from "util/types";
+
 /**
  * It validates the password and returns a boolean value
  * It checks for following
@@ -91,4 +93,34 @@ export const getDateMilliseconds = (
   const edMilli = edDate.getTime();
 
   return { start_date: stMilli, end_date: edMilli };
+};
+
+/**
+ * This methods accepts two dates start_date, end_date and calculates the difference in months between the two dates ad returns the value. Please note that
+ * lowest number date should be start_date and highest number date should end_date, otherwise you will get the value in negatives.
+ * @param date1 accepts the start date in the format of Date
+ * @param date2 accepts the end date in the format of Date
+ * @returns the difference between dates in number of months
+ */
+export const getMonthDifference = (
+  start_date: Date,
+  end_date: Date
+): number | null => {
+  let date1 = isDate(start_date);
+  let date2 = isDate(end_date);
+
+  if (!date1 || !date2) {
+    return null;
+  }
+
+  // Calculate the difference in years
+  const yearsDiff = end_date.getFullYear() - start_date.getFullYear();
+
+  // Calculate the difference in months
+  const monthsDiff = end_date.getMonth() - start_date.getMonth();
+
+  // Calculate the total difference in months
+  const totalMonthsDiff = yearsDiff * 12 + monthsDiff;
+
+  return totalMonthsDiff;
 };
