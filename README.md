@@ -106,3 +106,19 @@ console.log(getMonthDifference("", new Date("2024-04-29"))); // returns null
 
 console.log(getMonthDifference(new Date("2024-05-02"), "")); // returns null
 ```
+
+### generateMonthsCalendar = ( startingMonth: string | Date, monthTypeString?: boolean): string[]
+
+This methods accepts startingMonth and monthTypeString(optional) as parameters. based on the starting month it will generate array of months till current date.
+
+### Usage
+
+```javascript
+// Usage
+
+import { generateMonthsCalendar } from "frontend-helper-methods";
+
+console.log(generateMonthsCalendar("2023-12-02")); // returns ["2023-12-01","2024-01-01", "2024-02-01","2024-03-01", "2024-04-01", "2024-05-01"]
+
+console.log(generateMonthsCalendar("2023-12-02", true)); // returns ["December 2023", "January 2024", "February 2024", "March 2024", "April 2024", "May 2024"]
+```

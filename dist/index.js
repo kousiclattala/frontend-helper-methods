@@ -1,4 +1,5 @@
 import { isDate } from "util/types";
+import dayjs from "dayjs";
 /**
  * It validates the password and returns a boolean value
  * It checks for following
@@ -83,4 +84,43 @@ export const getMonthDifference = (start_date, end_date) => {
     // Calculate the total difference in months
     const totalMonthsDiff = yearsDiff * 12 + monthsDiff;
     return totalMonthsDiff;
+};
+/**
+ *
+ * @param month accepts string or date, for string in the format yyyy-mm-dd or yyyy/mm/dd
+ * @param monthTypeString its an optional parameter, which accepts in boolean value, if given months will be generated in string format
+ * @returns returns the months in array of strings starting from the given date to current month.
+ *
+ * This method accepts starting month and returns the array of months strings till current month.
+ * @example
+ *
+ * generateMonthsCalendar("2023-12-02") returns ["2023-12-01","2024-01-01", "2024-02-01", "2024-03-01", "2024-04-01", "2024-05-01"]
+ * genrateMonthsCalendar("2023-12-02", true) returns ["December 2023","January 2024", "Feburary 2024", "March 2024", "April 2024", "May 2024"]
+ *
+ */
+export const generateMonthsCalendar = (month, monthTypeString) => {
+    if (!month) {
+        return null;
+    }
+    let MONTHS = [];
+    let date1 = new Date(month);
+    let date2 = new Date();
+    const totalMonthsDiff = getMonthDifference(date1, date2);
+    let array = totalMonthsDiff && Array(totalMonthsDiff + 1).fill(1);
+    array &&
+        array.map((item, index) => {
+            let obj = {};
+            let name = monthTypeString
+                ? dayjs(date1)
+                    .set("month", date1.getMonth() + index)
+                    .set("date", 1)
+                    .format("MMMM YYYY")
+                : dayjs(date1)
+                    .set("month", date1.getMonth() + index)
+                    .set("date", 1)
+                    .format("YYYY-MM-DD");
+            MONTHS.push(name);
+        });
+    let mon = MONTHS.slice(1);
+    return mon.reverse();
 };
